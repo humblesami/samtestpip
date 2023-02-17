@@ -1,0 +1,35 @@
+# This file is protected via CODEOWNERS
+
+[build-system]
+requires = ["hatchling>=1.6.0,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "samtestpip"
+description = "Sami Test Pip"
+readme = "README.md"
+keywords = ["urllib", "httplib", "http"]
+authors = [{name = "Sami Akram", email="samiakram@live.com"}, ]
+maintainers = [{name = "Sami Akram", email="samiakram@live.com"}, ]
+classifiers = [ "Operating System :: OS Independent", "Programming Language :: Python :: 3.5"]
+requires-python = ">=3.5"
+dynamic = ["version"]
+
+[project.urls]
+"Changelog" = "https://github.com/humblesami/samtestpip/CHANGES.rst"
+"Code" = "https://github.com/humblesami/samtestpip"
+"Issue tracker" = "https://github.com/humblesami/samtestpip/issues"
+
+[tool.hatch.version]
+path = "src/samtestpip/_version.py"
+
+[tool.hatch.build.targets.sdist]
+include = [ "/docs",  "/src",  "/test",  "/requirements.txt",  "/CHANGES.rst",  "/README.md",  "/LICENSE.txt"]
+markers = ["limit_memory"]
+log_level = "DEBUG"
+add_imports = "from __future__ import annotations"
+skip = ["setup.py"]
+[tool.mypy]
+mypy_path = "src"
+
+
