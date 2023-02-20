@@ -1,0 +1,39 @@
+https://github.com/humblesami/samtestpip
+
+
+Make wheel
+
+python setup.py sdist bdist_wheel
+
+Install wheel
+ls ~/my_pip_modules/samtestpip/dist
+python -m pip install ~/my_pip_modules/samtestpip/dist/samtestpip-0.0.3-py3-none-any.whl
+twine upload dist/*
+twine upload dist/* --config-file ~/.pypirc1
+
+
+.pypirc1
+
+[distutils]
+index-servers = pypi
+
+[pypi]
+repository: https://test.pypi.org/legacy/
+username: __token__
+password: token1
+
+
+.pypirc2
+
+[distutils]
+index-servers = pypi
+
+[pypi]
+repository: https://pypi.org/legacy/
+username: __token__
+password: token2
+
+
+Install
+
+pip install -i https://test.pypi.org/simple/ samtestpip
